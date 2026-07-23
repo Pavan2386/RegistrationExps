@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Registration Form</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:linear-gradient(135deg,#F7971E,#FFD200);
+}
+
+.container{
+    width:500px;
+    margin:40px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0px 0px 15px gray;
+}
+
+h2{
+    text-align:center;
+    color:#b22222;
+}
+
+table{
+    width:100%;
+}
+
+td{
+    padding:8px;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    border-radius:8px;
+    border:2px solid orange;
+    box-sizing:border-box;
+}
+
+input[type=radio]{
+    width:auto;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:20px;
+    color:white;
+    cursor:pointer;
+}
+
+.submit{
+    background:green;
+}
+
+.reset{
+    background:red;
+}
+
+#msg{
+    text-align:center;
+    color:green;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+
+<script>
+
+function validateForm(){
+
+let nameRegex=/^[A-Za-z ]+$/;
+let empRegex=/^[A-Za-z0-9]{8}$/;
+let emailRegex=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+let mobileRegex=/^[0-9]{10}$/;
+
+let fname=document.getElementById("fname").value;
+let lname=document.getElementById("lname").value;
+let empid=document.getElementById("empid").value;
+let dob=document.getElementById("dob").value;
+let designation=document.getElementById("designation").value;
+let email=document.getElementById("email").value;
+let mobile=document.getElementById("mobile").value;
+
+let gender=document.querySelector('input[name="gender"]:checked');
+
+if(!nameRegex.test(fname)){
+alert("Enter valid First Name");
+return false;
+}
+
+if(!nameRegex.test(lname)){
+alert("Enter valid Last Name");
+return false;
+}
+
+if(!empRegex.test(empid)){
+alert("Employee ID should contain exactly 8 alphanumeric characters");
+return false;
+}
+
+if(dob==""){
+alert("Select Date of Birth");
+return false;
+}
+
+if(gender==null){
+alert("Select Gender");
+return false;
+}
+
+if(!nameRegex.test(designation)){
+alert("Designation should contain only alphabets");
+return false;
+}
+
+if(!emailRegex.test(email)){
+alert("Invalid Email");
+return false;
+}
+
+if(!mobileRegex.test(mobile)){
+alert("Enter valid Mobile Number");
+return false;
+}
+
+document.getElementById("msg").innerHTML="Thank You For Employee Registration!";
+return false;
+
+}
+
+function clearMsg(){
+document.getElementById("msg").innerHTML="";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Employee Registration</h2>
+
+<form onsubmit="return validateForm()" onreset="clearMsg()">
+
+<table>
+
+<tr>
+<td>First Name</td>
+<td><input type="text" id="fname"></td>
+</tr>
+
+<tr>
+<td>Last Name</td>
+<td><input type="text" id="lname"></td>
+</tr>
+
+<tr>
+<td>Employee ID</td>
+<td><input type="text" id="empid" maxlength="8"></td>
+</tr>
+
+<tr>
+<td>Date of Birth</td>
+<td><input type="date" id="dob"></td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td>
+<input type="radio" name="gender" value="Male"> Male
+&nbsp;&nbsp;
+<input type="radio" name="gender" value="Female"> Female
+</td>
+</tr>
+
+<tr>
+<td>Designation</td>
+<td><input type="text" id="designation"></td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td><input type="text" id="email"></td>
+</tr>
+
+<tr>
+<td>Mobile</td>
+<td><input type="text" id="mobile" maxlength="10"></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<button class="submit">Submit</button>
+<button type="reset" class="reset">Reset</button>
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<div id="msg"></div>
+
+</div>
+
+</body>
+</html>
