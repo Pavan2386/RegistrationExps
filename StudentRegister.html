@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Student Registration Form</title>
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form name="regForm" onsubmit="return validateForm()">
+
+    First Name: <input type="text" id="firstname"><br><br>
+    Last Name: <input type="text" id="lastname"><br><br>
+    Roll Number: <input type="text" id="rollnumber"><br><br>
+    Branch: <input type="text" id="branch"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Mobile Number: <input type="text" id="mobile"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<p id="message"></p>
+
+<script>
+function validateForm() 
+{
+    var firstname = document.getElementById("firstname").value;
+    var lastname = document.getElementById("lastname").value;
+    var rollnumber = document.getElementById("rollnumber").value;
+    var branch = document.getElementById("branch").value;
+    var email = document.getElementById("email").value;
+    var mobile = document.getElementById("mobile").value;
+
+    var namePattern = /^[A-Za-z\s]+$/;
+    var rollPattern = /^[A-Za-z0-9]{10}$/;
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    var mobilePattern = /^[0-9]{10}$/;
+
+    if (!namePattern.test(firstname)) 
+    {
+        alert("First Name should not contain numbers");
+        return false;
+    }
+
+    if (!namePattern.test(lastname)) 
+    {
+        alert("Last Name should not contain numbers");
+        return false;
+    }
+
+    if (!rollPattern.test(rollnumber)) 
+    {
+        alert("Roll Number must be exactly 10 alphanumeric characters");
+        return false;
+    }
+
+    if (!namePattern.test(branch)) 
+    {
+        alert("Branch should not contain numbers");
+        return false;
+    }
+
+    if (!emailPattern.test(email)) 
+    {
+        alert("Enter a valid Email address");
+        return false;
+    }
+
+    if (!mobilePattern.test(mobile)) 
+    {
+        alert("Mobile Number must be exactly 10 digits");
+        return false;
+    }
+
+    document.getElementById("message").innerHTML = "Thank you for registration";
+
+    document.regForm.reset();
+
+    return false;
+}
+</script>
+
+</body>
+</html>
