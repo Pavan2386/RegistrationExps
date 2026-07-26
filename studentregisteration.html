@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Registration Form</title>
+    <title>New Student Registration Form</title>
 
     <style>
         *{
@@ -215,11 +215,6 @@
 
 <form onsubmit="return validateForm()" onreset="clearMessage()">
 
-<div class="input-box">
-<label for="alternatephNo">Alternate Phone Number</label>
-<input type="text" id="phNo" name="phNo" pattern="\d{10}"</input>
-</div>
-
 <table>
 
 <tr>
@@ -235,7 +230,6 @@
 <tr>
 <td>Roll Number</td>
 <td><input type="text" id="roll" maxlength="10"></td>
-</tr>
 
 <tr>
 <td>Branch</td>
@@ -251,6 +245,11 @@
 <td>Mobile Number</td>
 <td><input type="text" id="mobile" maxlength="10"></td>
 </tr>
+
+<div class="input-box">
+<label for="alternatephNo">Alternate Phone Number</label>
+<input type="text" id="phNo" name="phNo" pattern="\d{10}"</input>
+</div>
 
 <tr>
 <td>Date of Birth</td>
